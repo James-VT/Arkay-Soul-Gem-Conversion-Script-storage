@@ -8,6 +8,7 @@ MiscObject property grandSoulGemFilled auto
 int property blackSoulGemEmptyCount auto
 int property blackSoulGemFilledCount auto
 int property blackSoulGemTotal auto
+VisualEffect property SoulTrapPVFX01 auto
 
 Event OnActivate(ObjectReference akActionRef)
 	Actor PlayerRef = Game.GetPlayer()
@@ -31,6 +32,7 @@ Function SoulGemMessageMenu(Actor PlayerRef, int blackSoulGemTotal, int aiButton
 			PlayerRef.RemoveItem(blackSoulGemEmpty, blackSoulGemEmptyCount)
 			PlayerRef.RemoveItem(blackSoulGemFilled, blackSoulGemFilledCount)
 			PlayerRef.AddItem(grandSoulGemFilled, blackSoulGemTotal)
+			SoulTrapPVFX01.Play(PlayerRef, 5, self)
 		ElseIf aiButton == 1
 
 		EndIf
